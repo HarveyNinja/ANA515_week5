@@ -1,0 +1,43 @@
+---
+title: "NBA_visual"
+author: "PD"
+date: "7/3/2022"
+output: html_document
+---
+
+``` {r setup, include = FALSE}
+library(bslib)
+library(tidyverse)
+library(knitr)
+library(ggplot2)
+```
+
+
+#Description of the data
+#contains RAPTOR data for every player broken out by season since the 1976 ABA-NBA merger.
+
+
+
+```{r, echo = TRUE}
+#read data
+url<-"https://raw.githubusercontent.com/fivethirtyeight/data/master/nba-raptor/historical_RAPTOR_by_player.csv"
+historical_player<- read.csv(url)
+```
+
+```{r,echo=TRUE}
+x <- cbind(historical_player$raptor_total)
+y <- cbind(historical_player$raptor_offense)
+matplot(x,y,type="p")
+```
+
+
+
+```{r,echo=TRUE}
+x <- cbind(historical_player$raptor_defense)
+y <- cbind(historical_player$raptor_offense)
+matplot(x,y,type="p")
+#historical_player %>%
+#ggplot(historical_player,aes())
+#ggplot(aes(raptor_offense)(raptor_defense))
+ # geom_point(aes(color=season))
+```
